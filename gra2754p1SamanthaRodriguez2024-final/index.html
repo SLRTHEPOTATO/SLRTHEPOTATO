@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Responsive Site </title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-color: #DDD78D;
+            font-family: "Shadows Into Light", cursive;
+        }
+        wrapper {
+            width: 100%;
+            min-width: 400px;
+            max-width: 1366px;
+            display: block;
+            margin: auto;
+            padding: 20px;
+            background-color: #DCBF85;
+            align-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #60594D;
+            color: #F2E3D5;
+        }
+        p {
+            color: #8B635C;
+            text-align: center;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .image-box {
+            background-color: #F2E3D5;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        div img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        header {
+            width: 100%;
+            background-color: #60594D;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px 8px 0 0;
+        }
+        banner img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #93A29B;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+        }
+        h1 {
+            padding: 0; 
+            color: #CFB18C;
+        }
+
+        .sidebar {
+            background-color: #F2E3D5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .ingredients {
+            color: #8B635C;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ingredients li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+<wrapper>
+    <header>
+        <h1>Chicken Fajitas</h1>
+        <banner><img src="../Chicken-Fajitas-Recipe-16-1024x1536.jpg" alt="chicken fajitas with peppers and onions"></banner>
+    </header>
+    <main>
+        <h2>Steps</h2>
+        <div class="grid-container">
+            <div class="image-box">
+                <img src="../ingredients.jpg" alt="sliced chicken">
+                <p>Gather all ingredients: sliced chicken, peppers, and onions.</p>
+            </div>
+            <div class="image-box">
+                <img src="../season.jpg" alt="seasoning chicken">
+                <p>Season the chicken with chili powder, cumin, salt, and pepper.</p>
+            </div>
+            <div class="image-box">
+                <img src="../cook.jpg" alt="cooking chicken in a skillet">
+                <p>Cook the seasoned chicken in olive oil until browned.</p>
+            </div>
+            <div class="image-box">
+                <img src="../bell.jpg" alt="sautéed vegetables">
+                <p>Sauté bell peppers and onions in the same skillet.</p>
+            </div>
+            <div class="image-box">
+                <img src="../combine.jpg" alt="combining chicken and veggies">
+                <p>Combine the chicken with sautéed vegetables.</p>
+            </div>
+            <div class="image-box">
+                <img src="../serve.jpg" alt="chicken fajitas served with tortillas">
+                <p>Serve the fajitas in warm tortillas with your favorite toppings.</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients">
+                <li>Sliced Chicken</li>
+                <li>Bell Peppers</li>
+                <li>Onions</li>
+                <li>Chili Powder</li>
+                <li>Cumin</li>
+                <li>Salt</li>
+                <li>Pepper</li>
+                <li>Olive Oil</li>
+                <li>Tortillas</li>
+                <li>Your Favorite Toppings</li>
+            </ul>
+        </div>
+    </main>
+    <footer>© 2024, Samantha Rodriguez
+        This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.
+    </footer>
+</wrapper>
+
+</body>
+</html>
