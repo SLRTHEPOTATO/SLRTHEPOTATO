@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <title>Interactive Drag-and-Drop | Samantha Rodriguez</title>
+    <style>
+        body {
+            background-color: #401811; 
+            text-align: center;
+            font-family: 'Shadows Into Light', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            background-color: #64483D; 
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        h1 {
+            color: #120000; 
+            font-size: 48px;
+            margin: 10px 0;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 18px;
+            color: #856F62; 
+            margin: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .drop-zone {
+            background-color: #413331;
+            width: 100%;
+            height: 400px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .draggable-item {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background-color: #64483D; 
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
+            cursor: grab;
+        }
+
+        .draggable-item img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .draggable-item:hover {
+            transform: scale(1.05);
+            cursor: grabbing;
+        }
+
+      
+        .dragging {
+            width: 50px; 
+            height: auto; 
+        }
+
+        footer {
+            font-size: 12px;
+            color: #120000; 
+            padding: 8px 0;
+            margin-top: 20px;
+        }
+
+        .additional-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .additional-item {
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            background-color: #856F62; 
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
+            cursor: grab;
+        }
+
+        .additional-item img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .additional-item:hover {
+            transform: scale(1.05);
+            cursor: grabbing;
+        }
+
+     
+        .separator {
+            margin: 20px 0;
+            border: none;
+            border-top: 2px solid #856F62;
+        }
+
+        .additional-items-title {
+            color: #856F62; 
+            font-weight: bold;
+            font-size: 24px; 
+            margin: 20px 0 10px;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+          
+            ev.target.classList.add('dragging');
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var draggedElement = document.getElementById(data);
+            ev.target.appendChild(draggedElement);
+        
+            draggedElement.classList.remove('dragging');
+        }
+
+        function dragEnd(ev) {
+            ev.target.classList.remove('dragging');
+        }
+    </script>
+</head>
+<body>
+    <h1>Build Her Setup!</h1>
+    <p>Drag an item into the drop zone below to build her setup</p>
+    
+    <div class="wrapper">
+        <div class="container">
+            <div id="dropZone" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <p style="color: #856F62; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Drop Here!</p>
+            </div>
+
+            <div id="item1" class="draggable-item">
+                <img src="./mug1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag1">
+            </div>
+            <div id="item2" class="draggable-item">
+                <img src="./floppa1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag2">
+            </div>
+            <div id="item3" class="draggable-item">
+                <img src="./desk1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag3">
+            </div>
+            <div id="item4" class="draggable-item">
+                <img src="./Sam1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag4">
+            </div>
+        </div>
+
+        <hr class="separator"> 
+
+        <div class="additional-items-title">Additional Items</div> 
+
+        <div class="additional-items">
+            <div id="item5" class="additional-item">
+                <img src="./book1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag5">
+            </div>
+            <div id="item6" class="additional-item">
+                <img src="./burrito1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag6">
+            </div>
+            <div id="item7" class="additional-item">
+                <img src="./1659925834600.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag7">
+            </div>
+            <div id="item8" class="additional-item">
+                <img src="./tacos1.png" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" id="drag8">
+            </div>
+        </div>
+
+        <footer> 
+       
+        <p> 2024, Samantha Rodriguez This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
